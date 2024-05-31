@@ -1,7 +1,9 @@
+MINIMUM_LENGTH = 8
+
+
 def main():
     """Print asterisks as long as the password."""
-    minimum_length = int(input("Minimum length: "))
-    password = validate_password(minimum_length)
+    password = validate_password()
     print_asterisks(password)
 
 
@@ -10,10 +12,10 @@ def print_asterisks(password):
     print("*" * len(password))
 
 
-def validate_password(minimum_length):
+def validate_password():
     """Validate the password."""
     password = input("Password: ")
-    while len(password) < minimum_length:
+    while len(password) < MINIMUM_LENGTH:
         print("Error password.")
         password = input("Password: ")
     return password
