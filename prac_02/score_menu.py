@@ -17,12 +17,17 @@ def main():
             category = determine_category(score)
             print(category)
         elif option == "s":
-            print("*" * score)
+            show_stars(score)
         else:
             print("Error option.")
         print(menu)
         option = input("Choice: ").lower()
     print("farewell.")
+
+
+def show_stars(score):
+    """Print as many stars as the score."""
+    print("*" * score)
 
 
 def validate_score():
