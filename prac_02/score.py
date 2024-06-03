@@ -11,7 +11,7 @@ def main():
     score = validate_score()
     category = determine_category(score)
     print(category)
-    random_score = random.randint(LOWEST_NUMBER, HIGHEST_NUMBER)
+    random_score = random.uniform(LOWEST_NUMBER, HIGHEST_NUMBER)
     random_score_category = determine_category(random_score)
     print(random_score_category)
 
