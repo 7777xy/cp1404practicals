@@ -10,9 +10,9 @@ SALE = 1000
 sales = float(input("Enter sales: $"))
 while sales >= LOWEST_SALES:
     if sales < SALE:
-        bonus = sales * LOW_PERCENT_BONUS
+        bonus = LOW_PERCENT_BONUS
     else:
-        bonus = sales * HIGH_PERCENT_BONUS
-    print(bonus)
+        bonus = HIGH_PERCENT_BONUS
+    print(bonus * sales)
     sales = float(input("Enter sales: $"))
 print("Ending.")
