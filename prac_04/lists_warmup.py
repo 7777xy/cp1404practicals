@@ -23,7 +23,5 @@ numbers[len(numbers) - 1] = NEW_LASE_ELEMENT
 print(numbers[2:])
 
 # 4
-if 9 in numbers:
-    print("9 is an element of numbers")
-else:
-    print("9 is not an element of numbers")
+print(9 in numbers)
+
