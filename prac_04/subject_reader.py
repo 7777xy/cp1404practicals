@@ -4,7 +4,6 @@ Data file -> lists program
 """
 
 FILENAME = "subject_data.txt"
-data_lists = []
 
 
 def main():
@@ -23,6 +22,7 @@ def print_subject_details(data):
 
 def load_data():
     """Read data from file formatted like: subject,lecturer,number of students."""
+    data = []
     input_file = open(FILENAME)
     for line in input_file:
         print(line)  # See what a line looks like
@@ -33,9 +33,9 @@ def load_data():
         parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
         print(parts)  # See if that worked
         print("----------")
-        data_lists.append(parts)
+        data.append(parts)
     input_file.close()
-    return data_lists[0:2]
+    return data[0:2]
 
 
 main()
