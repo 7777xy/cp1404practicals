@@ -16,3 +16,4 @@ for i in range(quick_picks_number):
         print(f"{number:>2}", end=" ")
     print()
     del numbers[0:]
+

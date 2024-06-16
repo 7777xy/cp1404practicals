@@ -50,3 +50,4 @@ new_full_names = [new_full_name for new_full_name in full_names if len(new_full_
 new_names = [new_name.split(" ")[1] for new_name in new_full_names]
 result = ', '.join(new_names)
 print(result)
+
