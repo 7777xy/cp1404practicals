@@ -1,13 +1,14 @@
 """
 Game, Set, Match
 Estimate: 30 minutes
-Actual:   40 minutes
+Actual:  45 minutes
 """
 
 import csv
 
 
 def main():
+    """print the champions and the winning countries from the file."""
     filename = "wimbledon.csv"
     name_to_number = {}
     countries = set()
@@ -21,7 +22,7 @@ def main():
 
 
 def process_data(name_to_number, text, countries):
-    """Calculate the winning times and add winning countries."""
+    """Calculate the winning times and collect winning countries from the file."""
     for record in text:
         if record[2] in name_to_number:
             name_to_number[record[2]] += 1
@@ -47,4 +48,3 @@ def print_winning_country(countries):
 
 
 main()
-
