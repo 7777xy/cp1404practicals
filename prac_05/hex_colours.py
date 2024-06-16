@@ -9,3 +9,4 @@ while name != "":
         print(NAME_TO_CODE[name])
     name = input("Color name: ").title()
 print("Ending.")
+

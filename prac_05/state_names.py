@@ -22,3 +22,4 @@ while not valid_input:
         valid_input = True
     except KeyError:
         print("Invalid short state")
+
