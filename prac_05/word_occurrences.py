@@ -17,3 +17,4 @@ for word in parts:
 max_length = max([len(part) for part in parts])
 for word, number in word_to_number.items():
     print(f"{word:{max_length}} : {number}")
+
