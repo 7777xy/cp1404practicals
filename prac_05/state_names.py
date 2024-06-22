@@ -13,13 +13,11 @@ print(CODE_TO_NAME)
 max_length = max([len(code) for code in CODE_TO_NAME.keys()])
 for code, name in CODE_TO_NAME.items():
     print(f"{code:{max_length}} is {name}")
-while not valid_input:
+state_code = input("Enter short state: ").upper()
+while state_code != "":
     try:
+        print(state_code, "is", CODE_TO_NAME[state_code])
         state_code = input("Enter short state: ").upper()
-        while state_code != "":
-            print(state_code, "is", CODE_TO_NAME[state_code])
-            state_code = input("Enter short state: ").upper()
-        valid_input = True
     except KeyError:
         print("Invalid short state")
 
