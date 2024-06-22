@@ -10,7 +10,7 @@ FILENAME = "wimbledon.csv"
 
 
 def main():
-    """print the champions and the winning countries from the file."""
+    """Print the champions and the winning countries from the file."""
     name_to_number = {}
     data = []
     countries = set()
