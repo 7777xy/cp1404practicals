@@ -20,4 +20,3 @@ while state_code != "":
         state_code = input("Enter short state: ").upper()
     except KeyError:
         print("Invalid short state")
-
