@@ -1,3 +1,9 @@
+"""
+Estimated duration time: 35 min
+Current time: 11:30
+Finished time: 12:20
+Actual duration time: 50 min
+"""
 from prac_06.guitar import Guitar
 
 guitars = []
