@@ -1,3 +1,9 @@
+"""
+Estimated duration time: 20 min
+Current time: 1:45
+Finished time: 2:10
+Actual duration time: 25 min
+"""
 from prac_06.guitar import Guitar
 
 
