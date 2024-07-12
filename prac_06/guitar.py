@@ -1,3 +1,6 @@
+GIVING_YEAR = 2022
+
+
 class Guitar:
     """Represent a Guitar object."""
 
@@ -10,5 +13,9 @@ class Guitar:
     def __str__(self):
         """Display the details of guitar."""
         return f"{self.name} ({self.year}) : ${self.cost:.2f}"
+
+    def get_age(self):
+        """Calculate the age of guitar."""
+        return GIVING_YEAR - self.year
 
 
