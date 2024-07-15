@@ -11,6 +11,28 @@ def main():
     print()
     guitars.sort()
     display_guitar()
+    get_guitar()
+    save_guitar()
+
+
+def save_guitar():
+    """Save guitars in the csv file."""
+    with open(FILENAME, 'w') as out_file:
+        for guitar in guitars:
+            print(guitar, file=out_file)
+
+
+def get_guitar():
+    """Get the guitar by inputting the details."""
+    name = input("Name: ")
+    while name != "":
+        year = int(input("Year: "))
+        cost = float(input("Cost: $"))
+        guitar = Guitar(name=name, year=year, cost=cost)
+        guitars.append(guitar)
+        print(f"{guitar} added.")
+        print()
+        name = input("Name: ")
 
 
 def load_guitar():
