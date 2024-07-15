@@ -11,3 +11,6 @@ class Guitar:
         """Display the details of guitar."""
         return f"{self.name},{self.year},{self.cost:.2f}"
 
+    def __lt__(self, other):
+        """Compare the guitar by year."""
+        return self.year < other.year
