@@ -16,3 +16,8 @@ class Project:
         return (f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: ${self.cost_estimate:.2f},"
                 f" completion: {self.completion_percentage}%")
 
+    def __lt__(self, other):
+        """Compare the priority in order to sort project."""
+        return self.priority < other.priority
+
+
