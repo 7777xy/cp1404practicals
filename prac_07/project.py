@@ -20,4 +20,6 @@ class Project:
         """Compare the priority in order to sort project."""
         return self.priority < other.priority
 
-
+    def __is_completed__(self):
+        """Test the project is completed or not."""
+        return self.completion_percentage == COMPLETED_PERCENTAGE
