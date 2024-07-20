@@ -27,18 +27,18 @@ def main():
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
-        if choice == "D":
-            display_projects(data)
-        elif choice == "L":
+        if choice == "L":
             load_project(data)
         elif choice == "S":
             save_project(data)
+        elif choice == "D":
+            display_projects(data)
         elif choice == "F":
             filter_project(data)
-        elif choice == "U":
-            update_project(data)
         elif choice == "A":
             add_new_project(data)
+        elif choice == "U":
+            update_project(data)
         else:
             print("Invalid choice")
         print(MENU)
@@ -93,7 +93,7 @@ def update_priority(data, project_choice):
         try:
             new_priority = input("New Priority: ")
             if new_priority != "":
-                if int(new_priority) <= MINIMUM_PRIORITY:
+                if int(new_priority) < MINIMUM_PRIORITY or int(new_priority) > MAXIMUM_PRIORITY:
                     print("Error priority.")
                 else:
                     data[project_choice].priority = int(new_priority)
