@@ -31,6 +31,8 @@ def main():
             load_project(data)
         elif choice == "S":
             save_project(data)
+        elif choice == "F":
+            filter_project(data)
         else:
             print("Invalid choice")
         print(MENU)
@@ -49,6 +51,23 @@ def load_project(data):
     """Load project."""
     new_loading_filename = input("New filename:")
     load_data(data, new_loading_filename)
+
+
+def filter_project(data):
+    """Filter project by date."""
+    filtered_projects = []
+    filter_date = input("Show projects that start after date (dd/mm/yy): ")
+    filter_date = datetime.datetime.strptime(filter_date, "%d/%m/%Y").date()
+    for project in data:
+        project.start_date = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+        if filter_date <= project.start_date:
+            filtered_projects.append(project)
+        else:
+            project.start_date = project.start_date.strftime("%d/%m/%Y")
+    filtered_projects.sort(key=attrgetter("start_date"))
+    for filtered_project in filtered_projects:
+        filtered_project.start_date = filtered_project.start_date.strftime("%d/%m/%Y")
+        print(filtered_project)
 
 
 def save_data(data, filename):
