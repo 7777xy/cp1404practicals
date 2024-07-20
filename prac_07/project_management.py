@@ -1,20 +1,25 @@
 """
 Estimate time: 1h
-Actual time:
+Actual time: 2.5h
 """
-
+import datetime
 from prac_07.project import Project
-
+from operator import attrgetter
 
 FILENAME = "projects.txt"
 MENU = ("- (L)oad project\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n"
         "- (U)pdate project\n- (Q)uit")
+INVALID_PROJECT_CHOICE = 0
+MINIMUM_PERCENTAGE = 0
+MAXIMUM_PERCENTAGE = 100
+MINIMUM_PRIORITY = 0
+MINIMUM_COST_ESTIMATE = 0
 
 
 def main():
     """Play the program according to the menu."""
     data = []
-    load_data(data)
+    load_data(data, FILENAME)
     print("Welcome to Pythonic Project Management")
     print(f"Loaded {len(data)} projects from {FILENAME}")
     print(MENU)
@@ -22,10 +27,18 @@ def main():
     while choice != "Q":
         if choice == "D":
             display_projects(data)
+        elif choice == "L":
+            load_project(data)
         else:
             print("Invalid choice")
         print(MENU)
         choice = input(">>> ").upper()
+
+
+def load_project(data):
+    """Load project."""
+    new_loading_filename = input("New filename:")
+    load_data(data, new_loading_filename)
 
 
 def display_projects(data):
@@ -49,9 +62,9 @@ def display_partial_projects(message, partial_projects):
         print(f" {project}")
 
 
-def load_data(data):
+def load_data(data, filename):
     """Load the data from the txt file."""
-    with open(FILENAME) as in_file:
+    with open(filename) as in_file:
         in_file.readline().strip()
         for line in in_file:
             projects = line.strip().split('\t')
