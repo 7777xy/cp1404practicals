@@ -29,12 +29,20 @@ def main():
             display_projects(data)
         elif choice == "L":
             load_project(data)
+        elif choice == "S":
+            save_project(data)
         else:
             print("Invalid choice")
         print(MENU)
         choice = input(">>> ").upper()
     save_data(data, FILENAME)
     print("Thank you for using custom-built project management software.")
+
+
+def save_project(data):
+    """Save project."""
+    new_saving_filename = input("New saving filename: ")
+    save_data(data, new_saving_filename)
 
 
 def load_project(data):
