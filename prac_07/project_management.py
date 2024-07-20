@@ -37,6 +37,8 @@ def main():
             filter_project(data)
         elif choice == "U":
             update_project(data)
+        elif choice == "A":
+            add_new_project(data)
         else:
             print("Invalid choice")
         print(MENU)
@@ -129,6 +131,19 @@ def save_data(data, filename):
             for project in data:
                 print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t"
                       f"{project.completion_percentage}", file=out_file)
+
+
+def add_new_project(data):
+    """Add new project."""
+    print("Let's add a new project")
+    name = input("Name: ").title()
+    start_date = input("Start date (dd/mm/yy): ")
+    start_date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date()
+    priority = validate_detail("Priority: ", int, MINIMUM_PRIORITY, MAXIMUM_PRIORITY)
+    cost_estimate = validate_detail("Cost estimate: $", float, MINIMUM_COST_ESTIMATE, MAXIMUM_COST_ESTIMATE)
+    completion_percentage = validate_detail("Percent complete: ", int, MINIMUM_PERCENTAGE, MAXIMUM_PERCENTAGE)
+    new_project = Project(name, start_date.strftime("%d/%m/%Y"), priority, cost_estimate, completion_percentage)
+    data.append(new_project)
 
 
 def validate_detail(message, detail_type, minimum_limit, maximum_limit):
