@@ -1,6 +1,6 @@
 """
 Estimate time: 1h
-Actual time: 2.5h
+Actual time: 7h
 """
 import datetime
 from prac_07.project import Project
@@ -9,11 +9,13 @@ from operator import attrgetter
 FILENAME = "projects.txt"
 MENU = ("- (L)oad project\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n"
         "- (U)pdate project\n- (Q)uit")
-INVALID_PROJECT_CHOICE = 0
+MINIMUM_PROJECT_CHOICE = 0
 MINIMUM_PERCENTAGE = 0
 MAXIMUM_PERCENTAGE = 100
 MINIMUM_PRIORITY = 0
+MAXIMUM_PRIORITY = 20
 MINIMUM_COST_ESTIMATE = 0
+MAXIMUM_COST_ESTIMATE = 999999
 
 
 def main():
@@ -33,6 +35,8 @@ def main():
             save_project(data)
         elif choice == "F":
             filter_project(data)
+        elif choice == "U":
+            update_project(data)
         else:
             print("Invalid choice")
         print(MENU)
@@ -70,6 +74,52 @@ def filter_project(data):
         print(filtered_project)
 
 
+def update_project(data):
+    """Update project."""
+    for i, new_project in enumerate(data):
+        print(f"{i} {new_project}")
+    project_choice = validate_detail("Project choice: ", int, MINIMUM_PROJECT_CHOICE, len(data) - 1)
+    print(data[project_choice])
+    update_percentage(data, project_choice)
+    update_priority(data, project_choice)
+
+
+def update_priority(data, project_choice):
+    """Update priority."""
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            new_priority = input("New Priority: ")
+            if new_priority != "":
+                if int(new_priority) <= MINIMUM_PRIORITY:
+                    print("Error priority.")
+                else:
+                    data[project_choice].priority = int(new_priority)
+                    is_valid_input = True
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Priority should be a number.")
+
+
+def update_percentage(data, project_choice):
+    """Update percentage."""
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            new_percentage = input("New Percentage: ")
+            if new_percentage != "":
+                if int(new_percentage) < MINIMUM_PERCENTAGE or int(new_percentage) > MAXIMUM_PERCENTAGE:
+                    print("Error percentage.")
+                else:
+                    data[project_choice].completion_percentage = int(new_percentage)
+                    is_valid_input = True
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Percentage should be a number.")
+
+
 def save_data(data, filename):
     """Save data into the txt file."""
     saving_message = input("Would you like to save to projects.txt? ")
@@ -79,6 +129,20 @@ def save_data(data, filename):
             for project in data:
                 print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t"
                       f"{project.completion_percentage}", file=out_file)
+
+
+def validate_detail(message, detail_type, minimum_limit, maximum_limit):
+    """Validate element."""
+    while True:
+        try:
+            detail = detail_type(input(message))
+            if detail < minimum_limit or detail > maximum_limit:
+                print("It is out of the range.")
+            else:
+                break
+        except ValueError:
+            print("It should be a number.")
+    return detail
 
 
 def display_projects(data):
