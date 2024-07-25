@@ -7,5 +7,8 @@ BoxLayout:
             id: input_number
             font_size: 48
             multiline: False
+        Button:
+            text: 'Square'
+            on_press: app.handle_calculate(input_number.text)
     Label:
         text: 'Enter a number and press "Square"'
