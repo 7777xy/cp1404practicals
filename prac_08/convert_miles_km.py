@@ -25,6 +25,11 @@ class MilesConversion(App):
         value = self.get_valid_mile() * MILE_TO_KM
         self.message = str(value)
 
+    def handle_increment(self, calculating_value):
+        """Handle up/down button to make mile go up or down by 1."""
+        value = self.get_valid_mile() + calculating_value
+        self.root.ids.user_input.text = str(value)
+
     def get_valid_mile(self):
         """Get a valid mile and if not valid, 0 will occur."""
         try:
