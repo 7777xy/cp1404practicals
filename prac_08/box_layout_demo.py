@@ -17,5 +17,10 @@ class BoxLayoutDemo(App):
         """Handle greeting, output result to label widget."""
         self.root.ids.output_label.text = f"Hello {self.root.ids.input_name.text}"
 
+    def handle_clear(self):
+        """Handle to reset both text field and output label to blank."""
+        self.root.ids.output_label.text = BLANK_STRING
+        self.root.ids.input_name.text = BLANK_STRING
+
 
 BoxLayoutDemo().run()
