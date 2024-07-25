@@ -20,6 +20,11 @@ class MilesConversion(App):
         """Handle changes to the text input by updating the model from the view."""
         self.message = self.get_valid_mile()
 
+    def handle_convert(self):
+        """Handle conversion to convert mile to km."""
+        value = self.get_valid_mile() * MILE_TO_KM
+        self.message = str(value)
+
     def get_valid_mile(self):
         """Get a valid mile and if not valid, 0 will occur."""
         try:
