@@ -16,5 +16,13 @@ class MilesConversion(App):
         self.message = "Type in the field & press convert"
         return self.root
 
+    def get_valid_mile(self):
+        """Get a valid mile and if not valid, 0 will occur."""
+        try:
+            mile = float(self.root.ids.user_input.text)
+            return mile
+        except ValueError:
+            return 0
+
 
 MilesConversion().run()
