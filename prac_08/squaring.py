@@ -3,8 +3,8 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 
 
-class SquareNumberApp(App):
-    """SquareNumberApp is a Kivy App for squaring a number."""
+class Squaring(App):
+    """Squaring is a Kivy App for squaring a number."""
 
     def build(self):
         """Build the Kivy app from the kv file."""
@@ -22,4 +22,4 @@ class SquareNumberApp(App):
             pass
 
 
-SquareNumberApp().run()
+Squaring().run()
