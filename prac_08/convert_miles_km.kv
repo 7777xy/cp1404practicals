@@ -16,7 +16,11 @@ BoxLayout:
             Button:
                 text: 'Down'
                 on_press: app.handle_increment(-1)
-    Button:
-        on_press: app.handle_convert()
-        text: 'Convert miles to km'
+#    Button:
+#        on_press: app.handle_convert()
+#        text: 'Convert miles to km'
 
+    Label:
+        text: app.message
+        font_size: 48
+        color: (1, 1, 0, 1)
