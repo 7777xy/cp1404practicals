@@ -2,3 +2,8 @@ BoxLayout:
     orientation: 'vertical'
     BoxLayout:
         orientation: 'horizontal'
+        TextInput:
+            id: user_input
+            on_text_validate: app.handle_update()
+            on_text: app.handle_convert()
+            font_size: 48
