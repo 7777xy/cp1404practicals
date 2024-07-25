@@ -1,4 +1,6 @@
 from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.label import Label
 
 
 class DynamicLabels(App):
@@ -7,6 +9,12 @@ class DynamicLabels(App):
         """Construct main app."""
         super().__init__(**kwargs)
         self.names = ["Bob Brown", "Cat Cyan", "Oren Ochre"]
+
+    def build(self):
+        """Build the Kivy GUI."""
+        self.title = "Dynamic Labels"
+        self.root = Builder.load_file('dynamic_labels.kv')
+        return self.root
 
 
 DynamicLabels().run()
