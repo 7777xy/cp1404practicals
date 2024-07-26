@@ -16,10 +16,6 @@ class MilesConversion(App):
         self.message = "Type in the field & press convert"
         return self.root
 
-    def handle_update(self):
-        """Handle changes to the text input by updating the model from the view."""
-        self.message = self.get_valid_mile()
-
     def handle_convert(self):
         """Handle conversion to convert mile to km."""
         value = self.get_valid_mile() * MILE_TO_KM
@@ -29,6 +25,7 @@ class MilesConversion(App):
         """Handle up/down button to make mile go up or down by 1."""
         value = self.get_valid_mile() + calculating_value
         self.root.ids.user_input.text = str(value)
+        self.handle_convert()
 
     def get_valid_mile(self):
         """Get a valid mile and if not valid, 0 will occur."""
