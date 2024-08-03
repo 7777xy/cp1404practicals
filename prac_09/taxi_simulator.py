@@ -19,7 +19,7 @@ def main():
         if choice == 'c':
             current_taxi = get_current_taxi(current_taxi, taxis)
         elif choice == 'd':
-
+            bill = drive_car(bill, current_taxi, taxis)
         else:
             print("Invalid option")
 
@@ -41,6 +41,18 @@ def get_current_taxi(current_taxi, taxis):
         print("It should be an integer.")
     return current_taxi
 
+
+def drive_car(bill, current_taxi, taxis):
+    """Drive the car according to the distance."""
+    if current_taxi is None:
+        print("You need to choose a taxi before you can drive")
+    else:
+        taxis[current_taxi].start_fare()
+        distance = float(input("Drive how far? "))
+        taxis[current_taxi].drive(distance)
+        print(f"Your {taxis[current_taxi].name} trip cost you ${taxis[current_taxi].get_fare():.2f}")
+        bill += taxis[current_taxi].get_fare()
+    return bill
 
 
 def display_taxi_detail(message, taxis):
