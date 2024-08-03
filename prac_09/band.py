@@ -15,3 +15,7 @@ class Band:
             message = member.play()
             print(message)
 
+    def __str__(self):
+        """Return a string representation of a Band object."""
+        output_message = ','.join(str(member) for member in self.members)
+        return f"{self.name} ({output_message})"
