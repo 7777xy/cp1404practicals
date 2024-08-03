@@ -1,5 +1,9 @@
+from musician import Musician
+
+
 class Band:
     """Represent a Band object."""
+
     def __init__(self, name=""):
         """Initialise a Band instance."""
         self.name = name
@@ -11,9 +15,7 @@ class Band:
 
     def play(self):
         """Display the details according to whether it has instruction."""
-        for member in self.members:
-            message = member.play()
-            print(message)
+        return '\n'.join([Musician.play(member) for member in self.members])
 
     def __str__(self):
         """Return a string representation of a Band object."""
