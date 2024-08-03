@@ -9,3 +9,9 @@ class Band:
         """Add the member into the members."""
         self.members.append(member)
 
+    def play(self):
+        """Display the details according to whether it has instruction."""
+        for member in self.members:
+            message = member.play()
+            print(message)
+
