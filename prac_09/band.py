@@ -5,3 +5,7 @@ class Band:
         self.name = name
         self.members = []
 
+    def add(self, member):
+        """Add the member into the members."""
+        self.members.append(member)
+
