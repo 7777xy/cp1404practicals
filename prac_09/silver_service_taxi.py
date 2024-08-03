@@ -10,3 +10,7 @@ class SilverServiceTaxi(Taxi):
         super().__init__(name, fuel)
         self.fanciness = fanciness
         self.price_per_km = Taxi.price_per_km * self.fanciness
+
+    def get_fare(self):
+        """Get fare like parent Taxi, but add the flagfall in the answer."""
+        return super().get_fare() + self.flagfall
