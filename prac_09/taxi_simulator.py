@@ -27,6 +27,8 @@ def main():
         print(MENU)
         choice = input(">>> ").lower()
 
+    print(f"Total trip cost: ${bill}")
+    display_taxi_detail("Taxis are now:", taxis)
 
 
 def get_current_taxi(current_taxi, taxis):
