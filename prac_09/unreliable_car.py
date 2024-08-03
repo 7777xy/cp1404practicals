@@ -9,3 +9,9 @@ class UnreliableCar(Car):
         super().__init__(name, fuel)
         self.reliability = reliability
 
+    def drive(self, distance):
+        """Drive like parent Car but compare the size of random number and reliability."""
+        random_number = randint(0, 100)
+        if random_number >= self.reliability:
+            return 0
+        return super().drive(distance)
