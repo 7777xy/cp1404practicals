@@ -22,7 +22,6 @@ def main():
             bill = drive_car(bill, current_taxi, taxis)
         else:
             print("Invalid option")
-
         print(f"Bill to date: ${bill:.2f}")
         print(MENU)
         choice = input(">>> ").lower()
