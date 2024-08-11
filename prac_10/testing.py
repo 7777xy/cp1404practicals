@@ -80,5 +80,10 @@ def format_phrase_as_sentence(phrase):
     >>> format_phrase_as_sentence('Hi')
     'Hi.'
     """
-    pass
+    phrase = phrase.strip()
+    if not phrase.isupper():
+        phrase = phrase[0].upper() + phrase[1:]
+    if not phrase[-1] == '.':
+        phrase = phrase + '.'
+    return phrase
 
